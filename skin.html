@@ -1,18 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
-    <!--Page Title-->
-    <title>[##_title_##] - [##_page_title_##]</title>
-    <!--Meta Tag-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="[##_page_title_##] :: [##_title_##]">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="alternate" type="application/rss+xml" title="[##_title_##]" href="[##_rss_url_##]" />
+    <title>[##_page_title_##] :: [##_title_##]</title>
 </head>
 
-<body>
+<body id="[##_body_id_##]">
     <s_t3>
+        <header>
+            <div id="blog-main">
+                <a href="[##_blog_link_##]">
+                    <h1>[##_title_##]</h1>
+                </a>
+            </div>
 
+            <!--TODO: 디렉토리 구현-->
+            <div id="page-directory">
+                <a href="[##_blog_link_##]">🏠</a>
+            </div>
 
+            <div id="menu-bar">
+                <div class="search">
+                    <s_search>
+                        <input type="text" name="[##_search_name_##]" value="[##_search_text_##]"
+                            onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }" id="search-box" />
+                        <input type="button" onclick="[##_search_onclick_submit_##]" class="submit" id="search-btn" />
+                        <label class="search-btn" for="search-btn"><img src="images/search.svg" alt="검색버튼"></label>
+                    </s_search>
+                </div>
+
+                <div class="bio">
+                    <ul>
+                        <li>
+                            <a href="[##_taglog_link_##]"><img src="images/hashtag.svg" alt="해시태그"></a>
+                        </li>
+                        <li>
+                            <a href="[##_guestbook_link_##]"><img src="images/note.svg" alt="방명록"></a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/fudoge" target="_blank"><img src="images/github.svg"
+                                    alt="github"></a>
+                        </li>
+                        <li>
+                            <a href="" target="_blank"><img src="images/blogger.svg" alt="blogger"></a>
+                        </li>
+                    </ul>
+                </div>
+        </header>
+
+        <div id="left-sidebar">
+            <div id="blogger-profile">
+                <img src="[##_image_##]" alt="블로거사진">
+                <ul>
+                    <li id="blogger-name">
+                        [##_blogger_##]
+                    </li>
+                    <li id="blogger-desc">
+                        [##_desc_##]
+                    </li>
+                </ul>
+            </div>
+
+            <div id="category">
+                [##_category_list_##]
+            </div>
+        </div>
+
+        <div id="content">
+            <p>content</p>
+        </div>
+
+        <div id="right-sidebar">
+            <p>right side</p>
+        </div>
+
+        <footer>
+            <p>footer</p>
+        </footer>
     </s_t3>
 </body>
 

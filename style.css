@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+/*init*/
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/*header*/
+header {
+    top: 0;
+    left: 0;
+    height: 3.5rem;
+    width: 100%;
+    background-color: aqua;
+    position: fixed;
+    padding: 0.6rem 0 0 0.6rem;
+
+    box-sizing: border-box;
+    /*padding도 사이즈에 포함하게 된다.*/
+
+    display: flex;
+}
+
+header a {
+    color: black;
+    text-decoration: none;
+}
+
+#page-directory {
+    font-size: 2rem;
+    position: fixed;
+    margin-left: 20%;
+}
+
+#menu-bar {
+    position: fixed;
+    float: right;
+    right: 0.6rem;
+    display: flex;
+}
+
+s_search {
+    display: flex;
+}
+
+#search-box {
+    border-radius: 1rem;
+    padding-left: 0.4rem;
+}
+
+#search-btn {
+    display: none;
+}
+
+.search-btn {
+    width: 2rem;
+    height: 2rem;
+}
+
+.bio ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.bio img {
+    width: 2rem;
+    height: 2rem;
+    margin-left: 1rem;
+}
+
+/*sidebar*/
+#left-sidebar,
+#right-sidebar {
+    margin-top: 3.5rem;
+    height: 100vh;
+    background-color: antiquewhite;
+    float: left;
+    position: fixed;
+    top: 0;
+    box-sizing: border-box;
+}
+
+#left-sidebar {
+    left: 0;
+    width: 20%;
+    padding: 0.6rem;
+}
+
+#blogger-profile {
+    display: flex;
+}
+
+#blogger-profile img {
+    border-radius: 5rem;
+    width: 10rem;
+    height: 10rem;
+}
+
+#blogger-profile ul {
+    list-style-type: none;
+}
+
+#right-sidebar {
+    right: 0;
+    width: 16%;
+}
+
+
+/*content*/
+#content {
+    margin: 0 20%;
+    margin-top: 3.5rem;
+    width: 64%;
+    height: auto;
+    background-color: brown;
+    float: left;
+}
+
+
+/*footer*/
+footer {
+    margin: 0 20%;
+    background-color: aqua;
+    width: 64%;
+    height: auto;
+}

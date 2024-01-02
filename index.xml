@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <skin>
   <information>
+    <!--스킨명-->
     <name>riveroverflow</name>
+    <!--스킨버전-->
     <version>1.0.0</version>
+
+    <!--스킨설명-->
     <description>
       <![CDATA[커스텀 티스토리 스킨 by riveroverflow]]>
     </description>
+
+    <!--저작권-->
     <license>
       <![CDATA[자유롭게 수정이 가능하며, 저작권 표시하에 재배포 가능합니다. 상업적인 이용은 금지입니다.]]>
     </license>
   </information>
+
   <author>
+    <!--제작자-->
     <name>riveroverflow</name>
+    <!--제작자 홈페이지-->
     <homepage>http://riveroverflow.tistory.com</homepage>
+    <!--제작자 이메일-->
     <email>kchawoon@naver.com</email>
   </author>
+  
   <default>
     <recentEntries>5</recentEntries>
     <recentComments>5</recentComments>
