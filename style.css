@@ -4,17 +4,17 @@
 
 @font-face {
     font-family: nanum-gothic;
-    src: url('./images/fonts/NanumGothic.ttf');
+    src: url('./images/NanumGothic.ttf');
 }
 
 @font-face {
     font-family: nanum-gothic-bold;
-    src: url('./images/fonts/NanumGothicBold.ttf');
+    src: url('./images/NanumGothicBold.ttf');
 }
 
 @font-face {
     font-family: nanum-gothic-extrabold;
-    src: url('./images/fonts/NanumGothicExtraBold.ttf');
+    src: url('./images/NanumGothicExtraBold.ttf');
 }
 
 * {
@@ -42,6 +42,7 @@ header {
     /*padding도 사이즈에 포함하게 된다.*/
 
     display: flex;
+    z-index: 1000;
 }
 
 header a {
@@ -174,7 +175,7 @@ s_search {
     width: 64%;
     height: auto;
     float: left;
-    padding-left: 10px;
+    padding-left: 1rem;
     overflow: hidden;
     /*하위요소가 삐져나가지 못하게*/
 }
@@ -207,6 +208,14 @@ s_search {
     color: rebeccapurple;
 }
 
+.article-header a {
+    text-decoration: none;
+    color: black;
+}
+
+.article-desc img {
+    z-index: 500;
+}
 
 /*footer*/
 footer {

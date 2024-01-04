@@ -54,23 +54,26 @@
         </header>
 
         <div id="left-sidebar">
-            <div id="blogger-profile">
-                <img src="[##_image_##]" alt="블로거사진">
-                <ul>
-                    <li id="blogger-name">
-                        [##_blogger_##]
-                    </li>
-                    <li id="blogger-desc">
-                        [##_desc_##]
-                    </li>
-                </ul>
-            </div>
-
-            <s_sidebar_element>
-                <div class="category">
-                    [##_category_list_##]
+            <s_sidebar>
+                <div id="blogger-profile">
+                    <img src="[##_image_##]" alt="블로거사진">
+                    <ul>
+                        <li id="blogger-name">
+                            [##_blogger_##]
+                        </li>
+                        <li id="blogger-desc">
+                            [##_desc_##]
+                        </li>
+                    </ul>
                 </div>
-            </s_sidebar_element>
+
+                <s_sidebar_element>
+                    <!--TODO: 현재 카테고리 강조 기능 구현-->
+                    <div class="category">
+                        [##_category_list_##]
+                    </div>
+                </s_sidebar_element>
+            </s_sidebar>
         </div>
 
         <div id="content">
@@ -100,11 +103,118 @@
                         </div>
                     </div>
                 </s_index_article_rep>
+
+
+                <!--글-->
+                <s_permalink_article_rep>
+                    <div class="article-header">
+                        <h2><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h2>
+                        <div class="article-category">
+                            <a href="[##_article_rep_category_link_##]">[##_article_rep_category_##]</a>
+                        </div>
+                        <div class="article-date">[##_article_rep_date_##]</div>
+                        [##_s_ad_isolation_##]
+                        <!--태그-->
+                        <s_tag_label>
+                            <div class="list_tag">
+                                Tag
+                                [##_tag_label_rep_##]
+                            </div>
+                        </s_tag_label>
+                    </div>
+
+                    <!--글 본문-->
+                    <div class="article-desc">
+                        [##_article_rep_desc_##]
+                    </div>
+
+                    <!--카테고리의 다른 글 보기-->
+                    <s_article_related>
+                        <div class="area_related">
+                            <strong class="tit_related">같이 보기: '[##_article_rep_category_##]'</strong>
+                            <ul class="list_related">
+                                <s_article_related_rep>
+                                    <li class="[##_article_related_rep_type_##]">
+                                        <a href="[##_article_related_rep_link_##]" class="link_related">
+                                            <s_article_related_rep_thumbnail>
+                                                <span class="thumb_related">
+                                                    <img src="[##_article_related_rep_thumbnail_link_##]"
+                                                        class="img_related"
+                                                        alt="[##_article_related_rep_title_##] - thumbnail">
+                                                </span>
+                                            </s_article_related_rep_thumbnail>
+                                            <span class="txt_related">[##_article_related_rep_title_##]</span>
+                                            <span class="date_related">[##_article_related_rep_date_##]</span>
+                                            <span class="frame_related"></span>
+                                        </a>
+                                    </li>
+                                </s_article_related_rep>
+                            </ul>
+                            <a href="[##_article_rep_category_link_##]" class="link_more">more</a>
+                        </div>
+                    </s_article_related>
+
+                    <!--댓글-->
+                    <div class="area_reply">
+                        <s_rp>
+                            [##_comment_group_##]
+                        </s_rp>
+                    </div>
+
+                </s_permalink_article_rep>
             </s_article_rep>
+
+            <!--보호글-->
+            <s_article_protected>
+                <div class="entryProtected">
+                    <h2><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h2>
+                    <span class="date">[##_article_rep_date_##]</span>
+                    <p>보호되어 있는 글입니다. 내용을 보시려면 비밀번호를 입력하세요.</p>
+                    <p>
+                        <label for="[##_article_password_##]">비밀번호 ::</label>
+                        <input type="password" maxlength="16" id="[##_article_password_##]"
+                            name="[##_article_password_##]" value=""
+                            onkeydown="if (event.keyCode == 13)[##_article_dissolve_##]" />
+                        <input type="button" class="submit" value="submit" onclick="[##_article_dissolve_##]" />
+                    </p>
+                </div>
+            </s_article_protected>
+
+            <!--태그 클라우드-->
+            <s_tag>
+                <h2 class="tag-cloud-title">Tag</h2>
+                <s_tag_rep>
+                    <ul class="tag-list">
+                        <li>
+                            <a href="[##_tag_link##]" class="[##_tag_name_##]">[##_tag_name_##]</a>
+                        </li>
+                    </ul>
+                </s_tag_rep>
+            </s_tag>
+
+            <!--방명록-->
+            <s_guest>
+                [##_guestbook_group_##]
+            </s_guest>
+
+            <!--페이징-->
+            <s_paging>
+                <div class="paging">
+                    <a [##_prev_page_##] class="prev-btn">
+                        Prev</a>
+                    <s_paging_rep>
+                        <a [##_paging_rep_link_##] class="page-num">[##_paging_rep_link_num_##]</a>
+                    </s_paging_rep>
+                    <a [##_next_page_##] class="next-btn">
+                        Next</a>
+                </div>
+            </s_paging>
         </div>
 
         <div id="right-sidebar">
-            <p>right side</p>
+            <s_sidebar>
+                <p>right side</p>
+            </s_sidebar>
         </div>
 
         <footer>
