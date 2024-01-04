@@ -1,9 +1,30 @@
 @charset "UTF-8";
 
 /*init*/
+
+@font-face {
+    font-family: nanum-gothic;
+    src: url('./images/fonts/NanumGothic.ttf');
+}
+
+@font-face {
+    font-family: nanum-gothic-bold;
+    src: url('./images/fonts/NanumGothicBold.ttf');
+}
+
+@font-face {
+    font-family: nanum-gothic-extrabold;
+    src: url('./images/fonts/NanumGothicExtraBold.ttf');
+}
+
 * {
     padding: 0;
     margin: 0;
+    font-family: 'nanum-gothic', sans-serif;
+}
+
+h2 {
+    font-family: 'nanum-gothic-extrabold', sans-serif;
 }
 
 /*header*/
@@ -12,11 +33,12 @@ header {
     left: 0;
     height: 3.5rem;
     width: 100%;
-    background-color: aqua;
     position: fixed;
     padding: 0.6rem 0 0 0.6rem;
+    background-color: white;
 
     box-sizing: border-box;
+    overflow: hidden;
     /*padding도 사이즈에 포함하게 된다.*/
 
     display: flex;
@@ -35,8 +57,8 @@ header a {
 
 #menu-bar {
     position: fixed;
-    float: right;
-    right: 0.6rem;
+    right: 0;
+    margin-right: 0.6rem;
     display: flex;
 }
 
@@ -74,7 +96,6 @@ s_search {
 #right-sidebar {
     margin-top: 3.5rem;
     height: 100vh;
-    background-color: antiquewhite;
     float: left;
     position: fixed;
     top: 0;
@@ -92,13 +113,52 @@ s_search {
 }
 
 #blogger-profile img {
-    border-radius: 5rem;
-    width: 10rem;
-    height: 10rem;
+    border-radius: 3rem;
+    width: 6rem;
+    height: 6rem;
 }
 
 #blogger-profile ul {
     list-style-type: none;
+    margin-left: 0.5rem;
+}
+
+#blogger-profile li {
+    margin-top: 0.5rem;
+}
+
+
+#blogger-name {
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.category {
+    margin-top: 1rem;
+}
+
+.category .tt_category .link_tit {
+    display: none;
+}
+
+.category a {
+    text-decoration: none;
+    color: black;
+}
+
+.category ul {
+    list-style-type: none;
+}
+
+.category ul li a {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.category ul li ul li ul li a {
+    font-weight: 400;
+    font-size: 1.0rem;
+    padding-left: 1rem;
 }
 
 #right-sidebar {
@@ -113,15 +173,45 @@ s_search {
     margin-top: 3.5rem;
     width: 64%;
     height: auto;
-    background-color: brown;
     float: left;
+    padding-left: 10px;
+    overflow: hidden;
+    /*하위요소가 삐져나가지 못하게*/
+}
+
+.titleWrap {
+    padding: 0.6rem;
+}
+
+.titleWrap a {
+    text-decoration: none;
+    color: black;
+}
+
+.wrap-thumbnail img {
+    float: right;
+    margin-right: 10px;
+    width: 10rem;
+    height: 10rem;
+}
+
+.wrap-summary a {
+    color: gray;
+}
+
+.titleWrap .wrap-info {
+    display: flex;
+}
+
+.wrap-info a {
+    color: rebeccapurple;
 }
 
 
 /*footer*/
 footer {
     margin: 0 20%;
-    background-color: aqua;
     width: 64%;
     height: auto;
+    text-align: center;
 }
