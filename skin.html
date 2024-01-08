@@ -55,17 +55,19 @@
 
         <div id="left-sidebar">
             <s_sidebar>
-                <div id="blogger-profile">
-                    <img src="[##_image_##]" alt="블로거사진">
-                    <ul>
-                        <li id="blogger-name">
-                            [##_blogger_##]
-                        </li>
-                        <li id="blogger-desc">
-                            [##_desc_##]
-                        </li>
-                    </ul>
-                </div>
+                <s_sidebar_element>
+                    <div id="blogger-profile">
+                        <img src="[##_image_##]" alt="블로거사진">
+                        <ul>
+                            <li id="blogger-name">
+                                [##_blogger_##]
+                            </li>
+                            <li id="blogger-desc">
+                                [##_desc_##]
+                            </li>
+                        </ul>
+                    </div>
+                </s_sidebar_element>
 
                 <s_sidebar_element>
                     <!--TODO: 현재 카테고리 강조 기능 구현-->
@@ -85,21 +87,21 @@
                     <div class="titleWrap">
                         <s_article_rep_thumbnail>
                             <div class="wrap-thumbnail">
-                                <a href="[##article_rep_link_##]">
+                                <a href="[##_article_rep_link_##]">
                                     <img src="[##_article_rep_thumbnail_url_##]"
                                         alt="[##_article_rep_title_##] - thubnail">
                                 </a>
                             </div>
                         </s_article_rep_thumbnail>
-                        <h2><a href="[##article_rep_link_##]">[##_article_rep_title_##]</a></h2>
+                        <h2><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h2>
                         <div class="wrap-summary">
-                            <a href="[##article_rep_link_##]">
+                            <a href="[##_article_rep_link_##]">
                                 [##_article_rep_summary_##]
                             </a>
                         </div>
                         <div class="wrap-info">
-                            <a href="[##_article_rep_category_link_##]">[##_article_rep_category_##]</a>
-                            <p>[##_article_rep_date_##]</p>
+                            <a href="[##_article_rep_category_link_##]">📁[##_article_rep_category_##]</a>
+                            <p>🕒[##_article_rep_date_##]</p>
                         </div>
                     </div>
                 </s_index_article_rep>
@@ -114,8 +116,8 @@
                         </div>
                         <h2 class="article-title"><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h2>
                         <div class="article-info">
-                            <div class="article-date">[##_article_rep_date_##]</div>
-                            [##_s_ad_isolation_##]
+                            <div class="article-date">🕒[##_article_rep_date_##]</div>
+                            <p>[##_s_ad_isolation_##]</p>
                             <!--태그-->
                             <s_tag_label>
                                 <div class="list-tag">
@@ -132,30 +134,6 @@
                     </div>
 
                     <!--카테고리의 다른 글 보기-->
-                    <s_article_related>
-                        <div class="area_related">
-                            <strong class="tit_related">같이 보기: '[##_article_rep_category_##]'</strong>
-                            <ul class="list_related">
-                                <s_article_related_rep>
-                                    <li class="[##_article_related_rep_type_##]">
-                                        <a href="[##_article_related_rep_link_##]" class="link_related">
-                                            <s_article_related_rep_thumbnail>
-                                                <span class="thumb_related">
-                                                    <img src="[##_article_related_rep_thumbnail_link_##]"
-                                                        class="img_related"
-                                                        alt="[##_article_related_rep_title_##] - thumbnail">
-                                                </span>
-                                            </s_article_related_rep_thumbnail>
-                                            <span class="txt_related">[##_article_related_rep_title_##]</span>
-                                            <span class="date_related">[##_article_related_rep_date_##]</span>
-                                            <span class="frame_related"></span>
-                                        </a>
-                                    </li>
-                                </s_article_related_rep>
-                            </ul>
-                            <a href="[##_article_rep_category_link_##]" class="link_more">more</a>
-                        </div>
-                    </s_article_related>
 
                     <!--댓글-->
                     <div class="area_reply">
