@@ -71,7 +71,7 @@
 
                 <s_sidebar_element>
                     <!--TODO: 현재 카테고리 강조 기능 구현-->
-                    <div class="category">
+                    <div class="category" id="category-list">
                         [##_category_list_##]
                     </div>
                 </s_sidebar_element>
@@ -184,7 +184,9 @@
                     <a [##_prev_page_##] class="prev-btn">
                         Prev</a>
                     <s_paging_rep>
-                        <a [##_paging_rep_link_##] class="page-num">[##_paging_rep_link_num_##]</a>
+                        <div class="page-num">
+                            <a [##_paging_rep_link_##]>[##_paging_rep_link_num_##]</a>
+                        </div>
                     </s_paging_rep>
                     <a [##_next_page_##] class="next-btn">
                         Next</a>
@@ -206,6 +208,27 @@
             </div>
         </footer>
     </s_t3>
+    <script>
+        // 해결해야 할 문제: 클래스는 추가되나, 색 변경이 안됨.
+        window.onload = function () {
+            const curr_path = location.pathname;
+
+            const target_arr = curr_path.split('/').splice(2);
+            console.log(target_arr);
+
+            let listItems = document.getElementById('category-list').querySelectorAll("ul li a");
+
+            for (let listItem of listItems) {
+                console.log(listItem);
+                const curr_category = listItem.innerHTML.substring(1, listItem.innerHTML.indexOf('<') - 1)
+                console.log(curr_category);
+                if (target_arr.includes(curr_category)) {
+                    console.log("added!");
+                    listItem.classList.add("curr-category");
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>
