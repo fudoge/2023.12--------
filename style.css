@@ -173,7 +173,8 @@ s_search {
     font-weight: bold;
 }
 
-.curr-category {
+.category .link_item.curr-category,
+.category .link_sub_item.curr-category {
     color: #7FC7D9;
 }
 
@@ -185,7 +186,7 @@ s_search {
 /*content*/
 #content {
     margin: 3.5rem 15% 0 15%;
-    width: auto;
+    width: 70%;
     height: auto;
     float: left;
     padding-left: 1rem;

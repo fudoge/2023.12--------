@@ -11,6 +11,68 @@
 </head>
 
 <body id="[##_body_id_##]">
+    <script>
+        // 카테고리일떄 다음을 실행
+        function category_function() {
+            category_emphasize_in_category();
+        }
+
+        // 게시글일때 다음을 실행
+        function entry_function() {
+            category_emphasize_in_article();
+            generate_pageNav();
+        }
+
+        // 카테고리 탐색기에서 카테고리 강조
+        function category_emphasize_in_category() {
+            const curr_path = location.pathname;
+
+            category_emphasize(curr_path);
+        }
+
+        // 게시글에서 카테고리 강조시키기
+        function category_emphasize_in_article() {
+            const category_anchor = document.getElementById("article-category").innerHTML
+            const curr_path = category_anchor.substring(category_anchor.indexOf("/"), category_anchor.indexOf(">") - 1);
+
+            category_emphasize(curr_path);
+        }
+
+        //게시글에서 자체 네비게이션 만들기
+        function generate_pageNav() {
+            //TODO: 페이지 내에서 프래그먼트로 이동하기 기능 구현
+        }
+
+        // 현재 path를 받아서 카테고리 탐색 후 강조 클래스 부여
+        function category_emphasize(path) {
+            const target_arr = decode(path);
+
+            const listItems = document.getElementById('category-list').querySelectorAll("ul li a");
+            for (const listItem of listItems) {
+                const curr_category = listItem.innerHTML.substring(1, listItem.innerHTML.indexOf('<') - 1);
+                if (target_arr.includes(curr_category)) {
+                    listItem.classList.add("curr-category");
+                }
+            }
+        }
+
+        function decode(path) {
+            target_arr = path.split('/').splice(2);
+            target_arr.forEach((v, i, arr) => arr[i] = decodeURIComponent(arr[i]));
+            return target_arr;
+        }
+
+        window.onload = function () {
+            const curr_path = location.pathname;
+            let firstPath = curr_path.split('/')[1];
+
+            if (firstPath === 'category') {
+                category_function();
+            } else if (firstPath === 'entry') {
+                entry_function();
+            }
+        }
+    </script>
     <s_t3>
         <header>
             <div id="blog-main">
@@ -110,7 +172,7 @@
                 <!--글-->
                 <s_permalink_article_rep>
                     <div class="article-header">
-                        <div class="article-category">
+                        <div class="article-category" id="article-category">
                             <a href="[##_article_rep_category_link_##]">
                                 << [##_article_rep_category_##]</a>
                         </div>
@@ -196,7 +258,11 @@
 
         <div id="right-sidebar">
             <s_sidebar>
-                <p>right side</p>
+                <s_sidebar_element>
+                    <div id="inpage-navigator">
+
+                    </div>
+                </s_sidebar_element>
             </s_sidebar>
         </div>
 
@@ -208,27 +274,6 @@
             </div>
         </footer>
     </s_t3>
-    <script>
-        // 해결해야 할 문제: 클래스는 추가되나, 색 변경이 안됨.
-        window.onload = function () {
-            const curr_path = location.pathname;
-
-            const target_arr = curr_path.split('/').splice(2);
-            console.log(target_arr);
-
-            let listItems = document.getElementById('category-list').querySelectorAll("ul li a");
-
-            for (let listItem of listItems) {
-                console.log(listItem);
-                const curr_category = listItem.innerHTML.substring(1, listItem.innerHTML.indexOf('<') - 1)
-                console.log(curr_category);
-                if (target_arr.includes(curr_category)) {
-                    console.log("added!");
-                    listItem.classList.add("curr-category");
-                }
-            }
-        }
-    </script>
 </body>
 
 </html>
