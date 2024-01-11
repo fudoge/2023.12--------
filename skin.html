@@ -11,6 +11,9 @@
 </head>
 
 <body id="[##_body_id_##]">
+    <div id="loader-container">
+        <div id="loader"></div>
+    </div>
     <script>
         // 카테고리일떄 다음을 실행
         function category_function() {
@@ -62,7 +65,7 @@
             return target_arr;
         }
 
-        window.onload = function () {
+        window.addEventListener('DOMContentLoaded', () => {
             const curr_path = location.pathname;
             let firstPath = curr_path.split('/')[1];
 
@@ -71,7 +74,20 @@
             } else if (firstPath === 'entry') {
                 entry_function();
             }
+        });
+
+        function getScrollPercent() {
+            return ((window.scrollY / (document.body.offsetHeight - window.innerHeight)).toFixed(2)) * 100;
         }
+
+        window.addEventListener('scroll', () => {
+            const percent = getScrollPercent();
+
+            const loader = document.getElementById('loader');
+            loader.style.width = `${percent}%`;
+        });
+
+
     </script>
     <s_t3>
         <header>
@@ -226,13 +242,14 @@
             <!--태그 클라우드-->
             <s_tag>
                 <h2 class="tag-cloud-title">Tag</h2>
-                <s_tag_rep>
-                    <ul class="tag-list">
-                        <li>
-                            <a href="[##_tag_link##]" class="[##_tag_name_##]">[##_tag_name_##]</a>
-                        </li>
-                    </ul>
-                </s_tag_rep>
+                <p>Ctrl + F / Cmd + F로 원하는 태그를 찾아보세요!</p>
+                <div class="tag-list">
+                    <s_tag_rep>
+                        <div class="tag-list-item">
+                            <a href="[##_tag_link_##]" class="[##_tag_name_##]">[##_tag_name_##]</a>
+                        </div>
+                    </s_tag_rep>
+                </div>
             </s_tag>
 
             <!--방명록-->
