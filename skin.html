@@ -44,12 +44,10 @@
         //게시글에서 자체 네비게이션 만들기
         function generate_pageNav() {
             const header = document.getElementsByClassName('article-desc')[0].querySelectorAll('h2, h3, h4');
-            console.log(header);
 
             for (let i = 0; i < header.length; i++) {
                 header[i].id = header[i].innerText;
             }
-            console.log(header);
 
             const inpage_nav = document.getElementById('inpage-navigator').querySelector('ul');
             for (let i = 0; i < header.length; i++) {
@@ -62,7 +60,17 @@
                 inpage_nav.appendChild(item);
             }
 
-            add_pagenav_emphasize();
+            const fixedHeight = 60;
+            window.addEventListener('scroll', () => {
+                for (let i = 0; i < header.length - 1; i++) {
+                    const scrY = window.scrollY + fixedHeight;
+                    if (header[i].offsetTop <= scrY && scrY < header[i + 1].offsetTop) {
+                        inpage_nav.children[i].classList.add('fragment-reading');
+                    } else {
+                        inpage_nav.children[i].classList.remove('fragment-reading');
+                    }
+                }
+            });
         }
 
         // 현재 path를 받아서 카테고리 탐색 후 강조 클래스 부여
@@ -82,19 +90,6 @@
             target_arr = path.split('/').splice(2);
             target_arr.forEach((v, i, arr) => arr[i] = decodeURIComponent(arr[i]));
             return target_arr;
-        }
-
-        function add_pagenav_emphasize() {
-            window.addEventListener('scroll', () => {
-                for (let i = 0; i < header.length - 1; i++) {
-                    console.log(inpage_nav.children[i]);
-                    if (header[i].offsetTop <= window.scrollY && window.scrollY < header[i + 1].offsetTop) {
-                        inpage_nav.children[i].classList.add('fragment-reading');
-                    } else {
-                        inpage_nav.children[i].classList.remove('fragment-reading');
-                    }
-                }
-            });
         }
 
         window.addEventListener('DOMContentLoaded', () => {
