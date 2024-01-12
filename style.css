@@ -442,6 +442,26 @@ s_search {
     color: #92C7CF;
 }
 
+#inpage-navigator {
+    margin-top: 6.5rem;
+    padding: 1rem;
+}
+
+#inpage-navigator ul li {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+#inpage-navigator ul li a {
+    color: #666;
+    text-decoration: none;
+}
+
+#inpage-navigator .fragment-reading,
+#inpage-navigator ul li a:hover {
+    font-weight: bold;
+}
+
 /*footer*/
 footer {
     margin: 0 15%;
