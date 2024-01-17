@@ -69,14 +69,12 @@ function category_emphasize(path) {
     }
 }
 
-// URI디코딩
 function decode(path) {
     target_arr = path.split('/').splice(2);
     target_arr.forEach((v, i, arr) => arr[i] = decodeURIComponent(arr[i]));
     return target_arr;
 }
 
-// DOM이 로딩되면 실행
 window.addEventListener('DOMContentLoaded', () => {
     const curr_path = location.pathname;
     let firstPath = curr_path.split('/')[1];
@@ -88,13 +86,22 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// 몇 퍼센트 스크롤 했는지
 function getScrollPercent() {
     return ((window.scrollY / (document.body.offsetHeight - window.innerHeight)).toFixed(2)) * 100;
 }
 
+const drawer_btn = document.getElementById('sidebar-btn');
+drawer_btn.addEventListener('click', () => {
+    const drawer = document.getElementById('left-sidebar');
 
-// 진행 막대바 업데이트
+    if (drawer.style.display === 'none') {
+        drawer.style.width = "10rem";
+        drawer.style.display = 'block';
+    } else {
+        drawer.style.display = 'none';
+    }
+})
+
 window.addEventListener('scroll', () => {
     const percent = getScrollPercent();
 
